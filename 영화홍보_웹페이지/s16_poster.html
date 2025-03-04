@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화홍보 포스터</title>
+    <style type="text/css">
+        @import url(poster.css);
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <!--머리말 시작-->
+        <header>
+            <nav>
+                <ul id="main_nav">
+                    <li><a href=#intro>영화 소개</a></li>
+                    <li><a href=#character>등장인물</a></li>
+                    <li><a href=#event>이벤트</a></li>
+                </ul>
+            </nav>
+            <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/KrM3vS5sy2w?si=OUNkXBdQad-80CXD"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+            </iframe>
+        </header>
+        <!--머리말 끝-->
+        <!--내용 시작-->
+        <section id="intro">
+            <div class="page-title">
+                <h1>영화 소개</h1>
+            </div>
+            <div class="photo">
+                <img width="230" height="280" src="../영화홍보_웹페이지/알라딘포스터.png">
+            </div>
+            <div class="text">
+                <br>
+                <p><a title="int">개봉일</a>&ensp;2019.05.23</p>
+                <p><a title="int">장르</a>&emsp;  모험, 가족, 판타지, 뮤지컬, 멜로/로맨스</p>
+                <p><a title="int">감독</a>&emsp;  가이 리치</p>
+                <p><a title="int">상영 시간</a>  128분 (2시간 7분 48초)</p>
+                <p><a title="int">줄거리</a>&ensp; 머나먼 사막 속 신비의 아그라바 왕국의 시대. <br>좀도둑 ‘알라딘’은 마법사 ‘자파’의 의뢰로 마법 램프를 찾아 나섰다가 <br>주인에게 세 가지 소원을 들어주는 지니를 만나게 되고,<br> 
+                    자스민 공주의 마음을 얻으려다 생각도 못했던 모험에 휘말리게 되는데…</p>      
+            </div>
+        </section>
+        <section id="character">
+            <div class="page-title">
+                <h1>등장 인물</h1>
+            </div>
+            <div class="content"></div>
+                <div class="photo">
+                    <div class="character">
+                        <a href="https://namu.wiki/w/%EC%9C%8C%20%EC%8A%A4%EB%AF%B8%EC%8A%A4" target="_blank">
+                            <img src="../영화홍보_웹페이지/윌 스미스.jpg">
+                            <div class="text">
+                                <p>윌 스미스</p>
+                                <p>지니</p>
+                                <p>마법 램프에서 나오는 유머러스하고 자유로운 성격의 지니, 알라딘의 소원을 들어주는 마법의 존재.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="character">
+                        <a href="https://namu.wiki/w/%EB%AF%B8%EB%82%98%20%EB%A7%88%EC%88%98%EB%93%9C" target="_blank">
+                            <img src="../영화홍보_웹페이지/미나 마수드.jpg">
+                            <div class="text">
+                                <p>미나 마수드</p>
+                                <p>알라딘</p>
+                                <p>신비한 마법 램프를 찾아 모험을 떠나는 용감한 젊은 남자, 자스민 공주의 사랑을 꿈꾸며 성장하는 인물.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="character">
+                        <a href="https://namu.wiki/w/%EB%82%98%EC%98%A4%EB%AF%B8%20%EC%8A%A4%EC%BD%A7" target="_blank">
+                            <img src="../영화홍보_웹페이지/나오미 스콧.jpg">
+                            <div class="text">
+                                <p>나오미 스콧</p>
+                                <p>자스민</p>
+                                <p>아그라바 왕국의 공주, 사랑과 자유를 추구하며 알라딘과 함께 모험에 나서는 용감한 여성 캐릭터.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="event">
+            <div class="page-title"></div>
+                <form action="event" method="get">
+                    <h2><알라딘(2019)> 감상평 남기고 선물받자!<br></h2>
+                    이름<a title="sel"> *필수항목</a>  <input type="text" name="name" size="10" maxlength="15"><br>
+                    비밀번호<a title="sel"> *필수항목</a>  <input type="password" name="password" size="10"><br>
+                    연락처<a title="sel"> *필수항목</a>  <input type="phone" name="phone"><br>
+                    이메일  <input type="email" name="email"><br>
+                    주소 <input type="address" name="address"><br>
+                    연령 <input type="radio" name="age" value="10대~20대">10대~20대
+                        <input type="radio" name="age" value="30대~40대">30대~40대
+                        <input type="radio" name="age" value="50대 이상">50대 이상
+                        <input type="radio" name="age" value="무응답">무응답<br>
+                    한줄평 <textarea rows="5" cols="50" name="content"></textarea><br>
+                    <input type="submit" value="이벤트 응모!">
+                    <input type="reset" value="초기화">
+                </form>
+        </section>
+        <!--내용 끝-->
+    </div>
+</body>
+</html>
