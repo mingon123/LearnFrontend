@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+        [문제]국어,영어,수학 성적을 prompt로 입력받아서 총점,평균,등급을 출력하는데
+        총점(getSum),평균(getAvg),등급(getGrade)을 구하는 함수를 만들어서 사용하자
+        (0~100만 성적 입력 가능하도록)
+        [출력예시] 
+        총점 : 000
+        평균 : 00
+        등급 : 0 
+        */
+
+        // 총점 구하기
+        function getSum(kor,eng,mat){
+            return kor + eng + mat;
+        };
+        // 평균 구하기
+        function getAvg(sum) {
+            return sum / 3;
+        };
+        // 등급 구하기
+        function getGrade(avg){
+            let grade;
+            switch(parseInt(avg/10)){
+                case 10: case 9: grade='A';break;
+                case 8: grade='B';break;
+                case 7: grade='C';break;
+                case 6: grade='D';break;
+                default: grade='F';
+            };
+            return grade;
+        };
+
+        let kor = prompt('국어 점수','');
+        let eng = prompt('영어 점수','');
+        let mat = prompt('수학 점수','');
+        
+        if(kor<0 || kor>100 || eng<0 || eng>100 || mat<0 || mat>100) {
+            document.write('성적은 0부터 100 사이만 입력하세요');
+        } else{
+            // 총점 구하기
+            let sum = getSum(Number(kor),Number(eng),Number(mat));
+            // 평균 구하기
+            let avg = getAvg(sum);
+            // 등급 구하기
+            let grade = getGrade(avg);
+
+            document.write('총점 : ' + sum + '<br>');
+            document.write('평균 : ' + avg + '<br>');
+            document.write('등급 : ' + grade + '<br>');
+        }
+
+        
+
+
+    </script>
+</body>
+</html>

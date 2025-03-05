@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const array = [10,20,30,40,50,50,40,30,20,10];
+
+        let output1 = array.indexOf(40); // 있을 경우 해당 인덱스 반환
+        document.write(output1 + '<br>');
+
+        let output2 = array.indexOf(80); // 없을 경우 -1 반환
+        document.write(output2 + '<br>'); 
+
+        let output3 = array.lastIndexOf(40); // 뒤에서부터 검색
+        document.write(output3 + '<br>');
+
+        let output4 = array.lastIndexOf(80); // 없을 경우 -1 반환
+        document.write(output4);
+
+    </script>
+</body>
+</html>

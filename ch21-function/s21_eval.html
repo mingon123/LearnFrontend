@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eval()</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 입력받은 데이터를 eval을 사용하면 해킹의 위험이 있음
+        // eval(string) : string을 자바스크립트 코드로 실행
+        let willEval = '';
+
+        willEval += 'var number = 10;'; // 연속된 문자이기 때문에 ; 필수
+
+        willEval += 'alert(number);';
+
+        // 문자열 출력
+        document.write(willEval);
+
+        // eval() 함수 사용 
+        // 문자열을 실행 코드로 변환
+        eval(willEval);
+        alert(number);
+        
+
+    </script>
+</body>
+</html>

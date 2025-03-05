@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 요소의 정렬</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const array = ['가','하','아','나'];
+        
+        array.sort(); // 정렬
+        document.write(array + '<br>');
+        
+        
+        array.reverse(); // 내림차순 정렬(정렬 후 역순으로 변경)
+        document.write(array + '<br>');
+        document.write('----------------<br>');
+        
+
+        const array2 = [52,273,103,32];
+
+        // 숫자 오름차순 정렬
+        array2.sort(function(left,right){  // 숫자 정렬은 이렇게 해야함
+            return left - right;
+        });
+        document.write(array2 + '<br>');
+
+        // 숫자 내림차순 정렬
+        array2.sort(function(left,right){ // 매개변수로 함수를 사용(자바는 불가)
+            return right-left;
+        });
+        document.write(array2 + '<br>');
+
+    </script>
+</body>
+</html>
