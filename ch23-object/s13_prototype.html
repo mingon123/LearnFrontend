@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로토타입을 이용한 메서드 정의</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 프로토타입 : 공용공간 + 상속할 때 사용 (정의할 때만 prototype 붙임)
+
+        function Student(name,korean,english,math){
+            this.name = name;
+            this.korean = korean;
+            this.english = english;
+            this.math = math;
+        }
+        // 프로토타입은 생성자 함수를 사용해 생성된 객체가 공통으로 가지는 공간                 - 공유하기 때문에 퍼포먼스가 좋아짐
+        Student.prototype.getSum = function(){
+            return this.korean + this.english + this.math;
+        };
+        Student.prototype.getAverage = function(){
+            return this.getSum()/3;
+        };
+        Student.prototype.toString = function(){
+            return this.name +','+ this.getSum() +','+ this.getAverage(); 
+        };
+
+        // 학생 정보 배열
+        const students = [];
+        students.push(new Student('홍길동',91,89,79));
+        students.push(new Student('박문수',92,89,79));
+        students.push(new Student('장영실',93,89,79));
+        students.push(new Student('김유신',94,89,79));
+        students.push(new Student('강호동',95,89,79));
+        students.push(new Student('유재석',99,89,79));
+        
+        document.write('이름, 총점, 평균<br>');
+        for(let i in students){
+            document.write(students[i] + '<br>'); // 호출은 기존과 똑같음
+        }
+        
+    </script>
+</body>
+</html>

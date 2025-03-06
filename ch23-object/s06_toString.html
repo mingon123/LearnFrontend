@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toString()</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 객체 생성
+        const student = {};
+
+        document.write(student);
+        document.write('<br>');
+        document.write(student.toString() + '<br>');
+        
+        // 객체에 속성 추가
+        student.이름 = '홍길동';
+        student.취미 = '악기';
+        student.특기 = '프로그래밍';
+        student.장래희망 = '프로그래머';
+        
+        // 객체에 메서드 추가
+        student.toString = function(){
+            let msg = '';
+            for(let key in this){ // this : 객체 안에서 객체 참조.                   student대신 this 사용 - 이게 좋음
+                if(key != 'toString'){ // toString 메서드 제외
+                    msg += key + ':' + this[key] + '<br>';
+                }
+            }
+            return msg;
+        };
+        
+        document.write(student.toString() + '<br>');
+        document.write('---------------------------<br><br>');
+        document.write(student); // 재정의하면 toString과 결과가 같음(생략 가능)
+        document.write('---------------------------<br><br>');
+
+
+        // 속성 제거
+        // delete student.취미; // 두개 같음
+        delete(student.취미);
+        document.write(student);
+
+
+    </script>
+</body>
+</html>
