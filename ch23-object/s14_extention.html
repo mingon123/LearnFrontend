@@ -36,7 +36,7 @@
         }
         Student.prototype = Human.prototype; // 상속됨
         // 프로토타입의 생성자를 재정의 (정의하지 않아도 구동상의 문제는 없음)
-        Student.prototype.constructor = Student; 
+        Student.prototype.constructor = Student;                                            // 상속받을 때 명칭도 바뀌기 때문에 이 작업을 하지 않으면 Human을 사용해야함
 
         const student = new Student(40);
         document.write('student.type = ' + student.type + '<br>');
