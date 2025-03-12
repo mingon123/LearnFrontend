@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래머스</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://programmers.co.kr/assets/icons/favicon-ec61d910396b5fc4d7418ea44281693172c34e31d437d074f9ab5470523990fb.png">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container{
+            width: 70%;
+            margin: 0 auto;
+            border: solid 1px #ccc;
+        }
+        #header{
+            width: 100%;
+            height: 500px;
+            background-color: #999;
+            background-size: cover;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            background: white;
+            padding: 0 20px;
+        }
+        #title{
+            font-size: 28px;
+            font-weight: bold;
+            font-family: "맑은 고딕", 돋움;
+        }
+        
+        .title_container{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        nav ul{
+            list-style: none;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+        }
+        nav ul li{
+            display: inline-block;
+            font-family: "맑은 고딕", 돋움;
+            font-size: 1em;
+            margin: 10px 20px;
+            font-weight: bold;
+        }
+        #main_nav li:hover {
+            color: gray;
+        }
+        .submenu{
+            margin-left: auto;
+        }
+        .sub-menu li {
+            font-family: "맑은 고딕", 돋움;
+            font-size: 1em;
+            margin: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .sub-menu li:hover {
+            color: #007BFF;
+        }
+        .login{
+            background: white;
+            padding: 10px;
+            border-radius: 10%;
+            border-color: lightgray;
+            border-style: solid;
+            font-weight: bold;
+        }
+        .login:hover {
+            background-color: #f0f0f0;
+        }
+        section#ad{
+            background-color: gray;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+            color: white;
+        }
+        div#image{
+            background-color: gray;
+            width: 70%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #gallery{
+            width: 800px;
+            max-width: 800px;
+            height: auto;
+            display: block;
+        }
+        .content{
+            padding: 30px;
+        }
+        .text ol{
+            list-style-type: none;
+            padding: 0;
+        }
+        .menu1 ol{
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            gap: 30px;
+        }
+        .menu1 ol li{
+            font: size 10pt;
+        }
+        .menu2 {
+            color: white;
+            border: none;
+            border-color: black;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 30px;
+            text-align: center;
+            margin: auto;
+            display: block;
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+        .menu2 .menu-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .menu2 + span {
+            display: block;
+            margin-top: 10px;
+        }
+        .menu2:hover + span {
+            color: #444;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            let num=0;
+            const gallery = document.getElementById('gallery');
+            const imageBox = document.getElementById('image');
+            const ad = document.getElementById('ad');
+            const textContainer = document.querySelector('.text ol');
+            const imageData = [
+                {
+                    src: "../홈페이지 만들기/img1.png",
+                    text: `
+                        <li>[광고]건강보험심사평가원</li>
+                        <h1>2025년 상반기 건강보험심사평가원 정규직 채용</h1>
+                        <li>원서접수:3.11.(화)~3.25.(화) 18시</li>
+                    `
+                },
+                {
+                    src: "../홈페이지 만들기/img2.png",
+                    text: `
+                        <li>데브코스</li>
+                        <h1>기업이 원하는 스킬만 담은
+                            데이터 엔지니어링 데브코스</h1>
+                        <li>국내 및 실리콘밸리의 전현직 전문가로
+                            구성된 강사진과 함께!</li>
+                    `
+                },
+                {
+                    src: "../홈페이지 만들기/img3.png",
+                    text: `
+                        <li>데브코스</li>
+                        <h1>개발 생산성 200% UP!
+                            생성형 AI로 백엔드 개발 마스터</h1>
+                        <li>AI 활용 개발 프로젝트 경험이 필수인 시대
+                            경쟁력 있는 개발자로 성장해보세요</li>
+
+                    `
+                }
+            ]
+            window.setInterval(function(){
+                num = (num+1) % imageData.length;
+                gallery.src = imageData[num].src;
+                textContainer.innerHTML = imageData[num].text;
+
+                if(num==0){
+                    ad.style.backgroundColor = "gray";
+                    imageBox.style.backgroundColor = "gray";
+                } else{
+                    ad.style.backgroundColor = "black";
+                    imageBox.style.backgroundColor = "black";
+                }
+            },3000);
+        }
+        function goToHomePage() {
+            window.location.href = '/';
+        }
+        </script>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <nav>
+                <div class="title_container">
+                    <img src="../홈페이지 만들기/title.png" alt="프로그래머스" width="25" height="25">
+                    <div id="title" onclick="goToHomePage()">programers</div>
+                </div>
+                <ul id="main_nav">
+                    <li>교육</li>
+                    <li>채용</li>
+                    <li>코딩테스트</li>
+                    <li>인증시험</li>
+                </ul>
+                <ul class="sub-menu">
+                    <li>블로그</li>
+                    <li>기업서비스</li>
+                    <button class="login">로그인</button>
+                </ul>
+            </nav>
+        </header>
+        <!--머리말 끝-->
+        <!--내용 시작-->
+        <section id="ad">
+            <div class="content">
+                <div class="text">
+                <ol>
+                    <li>[광고]건강보험심사평가원</li>
+                    <h1>2025년 상반기 건강보험심사평가원 정규직 채용</h1>
+                    <li>원서접수:3.11.(화)~3.25.(화) 18시</li>
+                </ol>
+                </div>
+            </div>
+            <div id="image">
+                <img src="../홈페이지 만들기/img1.png" id="gallery">
+            </div>
+        </section>
+        <section id="middle_menu">
+            <div class="content">
+                <div class="menu1">
+                    <ol>
+                        <li>
+                            <button class="menu2"><img src="../홈페이지 만들기/menu1.png" class="menu-icon"></button>
+                            <span>무료 국비 강의</span>
+                        </li>
+                        <li>
+                            <button class="menu2"><img src="../홈페이지 만들기/menu2.png" class="menu-icon"></button>
+                            <span>코딩테스트 문제</span>
+                        </li>
+                        <li>
+                            <button class="menu2"><img src="../홈페이지 만들기/menu3.png" class="menu-icon"></button>
+                            <span>수강 중인 강의</span>
+                        </li>
+                        <li>
+                            <button class="menu2"><img src="../홈페이지 만들기/menu4.png" class="menu-icon"></button>
+                            <span>채용 공고</span>
+                        
+                        </li>
+                        <li>
+                            <button class="menu2"><img src="../홈페이지 만들기/menu5.png" class="menu-icon"></button>
+                            <span>채용 프로그램</span>
+                        </li>
+                        <li>
+                            <button class="menu2"><img src="../홈페이지 만들기/menu6.png" class="menu-icon"></button>
+                            <span>스킬 체크</span>
+                        </li>
+                        <li>
+                            <button class="menu2"><img src="../홈페이지 만들기/menu7.png" class="menu-icon"></button>
+                            <span>코딩역량인증시험</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
