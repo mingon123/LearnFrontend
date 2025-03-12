@@ -139,11 +139,15 @@
                 return;
             }
             
+            // 날짜 옵션
+            const options = {year: 'numeric',month:'2-digit',day:'2-digit'} // '2025.03.12' 숫자, 2자리
+
+
             // 입력창에 입력한 데이터를 배열에 저장
             todoList.unshift({ // 맨 앞에 추가(push는 뒤에 추가)
                 id:new Date().getTime(),
                 todo:todo.value,
-                created:new Date().toLocaleDateString().replace(/. /g,'-').replace('.',''),               // 모든 '. '을 검색해라 //g : 모든 문자
+                created:new Date().toLocaleDateString('ko-Kr',options).replace(/. /g,'-').replace('.',''),               // 모든 '. '을 검색해라 //g : 모든 문자
                 completed:false
             });
             // 등록이 완료되면 input 태그 초기화
