@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>효과와 애니메이션</title>
+    <style type="text/css">
+        h1{width:50px;height:30px;background-color:red;font-size:100%;}
+        h2{width:50px;height:30px;background-color:orange;font-size:100%;}
+        h3{width:50px;height:30px;background-color:aqua;font-size:100%;}
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        // 문서가 준비 완료되면 매개변수로 전달된 함수를 실행
+        $(function(){
+            // animate({애니메이션 속성},'효과속도',콜백함수)
+            // 애니메이션 속성 : 모션으로 적용할 속성을 스타일(CSS)를 이용해 입력
+            $('h1').animate({
+                marginLeft:'250px'                                                          // 여백을 만들어 빈 공간으로 내용이 이동하도록 만듦
+            },5000,function(){ // 애니메이션 종료 시 수행할 작업
+                alert('도착 완료!!');
+            });
+
+            $('h2').animate({
+                marginLeft:'250px',
+                opacity:0.3, // 투명도
+                width:'100px',
+                height:'100px'
+            },5000,);
+
+            $('h3').animate({
+                marginLeft:'250px'
+            },3000).animate({
+                marginLeft:'100px'                                                          // 여백을 늘렸다가 줄이면 되돌아가는 느낌
+            },2000)
+        });
+    </script>
+</head>
+<body>
+    <h1>내용</h1>
+    <h2>내용</h2>
+    <h3>내용</h3>
+</body>
+</html>
