@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위,바위,보 게임</title>
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Sunflower:300);  /*글자체 가져오기*/
+
+        body{
+            font-family: 'Sunflower', sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+        table{
+            width: 700px;
+            margin: 0 auto;
+        }
+        .results{
+            text-align: center;
+            font-weight: bold;
+            font-size: 2.5em;
+            vertical-align: top;
+        }
+        .result-img{
+            padding: 100px;
+            text-align: center;
+        } 
+        .user-option{
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.user-option').click(function(){
+                // user가 선택한 값
+                let user_answer = $(this).attr('id').substr(3);
+                // 사용자가 선택한 이미지 표시
+                $('#user_img').show();
+                // user 선택 이미지
+                $('#user_img').attr('src',$(this).attr('src'));
+
+                // computer가 선택한 값 (0:가위,1:바위,2:보)
+                let com_answer = Math.floor(Math.random()*3);
+                // computer가 선택한 이미지 표시
+                $('#com_img').show();
+                // computer가 선택한 이미지
+                $('#com_img').attr('src','../files/timg'+com_answer+'.png');
+
+                let result;
+                let num = com_answer - user_answer;
+                if(num == -2 || num == 1){
+                    result = ['승','패'];
+                }else if(num == -1 || num == 2){
+                    result = ['패','승'];
+                }else{
+                    result = ['무','무'];
+                }
+
+                $('.result-letter').html(function(index){
+                    return result[index];
+                });
+            })
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr height="100">
+            <td class="results" width="315">
+                컴퓨터<span class="result-letter"></span>
+            </td>
+            <td class="results" width="315">
+                사용자<span class="result-letter"></span>
+                <div>
+                    <img class="user-option" id="img0" src="../files/timg0.png" width="90">
+                    <img class="user-option" id="img1" src="../files/timg1.png" width="90">
+                    <img class="user-option" id="img2" src="../files/timg2.png" width="90">
+                </div>
+            </td>
+        </tr>
+        <tr height="150">
+            <td class="result-img"><img id="com_img" style="display:none;"></td>
+            <td class="result-img"><img id="user_img" style="display:none;"></td>
+        </tr>
+    </table>
+</body>
+</html>

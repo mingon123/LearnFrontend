@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jqueryUI - modal창</title>
+    <link rel="stylesheet" href="../css/jquery-ui.min.css">
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#dialog').dialog({
+                resizable:false,    // 크기변경X
+                height:200,
+                modal:true, //부모창 영역을 선택할 수 없음
+                buttons:{
+                    'Delete all items':function(){ // 공백이 있으면 ''로 표시
+                        $(this).dialog('close');
+                    },
+                    Cancel:function(){ // 공백없으면 '' 생략
+                        $(this).dialog('close');
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="dialog" title="Basic dialog"><!--div를 이용해서 새 창처럼 보이도록 함-->
+        <p>
+            This is the default dialog which is useful for displaying information
+        </p>
+    </div>
+
+    <p>
+        오늘은 날씨가 맑지만 겨울 날씨처럼 춥습니다.
+    </p>
+</body>
+</html>

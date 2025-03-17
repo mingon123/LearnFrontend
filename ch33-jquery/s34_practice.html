@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위,바위,보 게임</title>
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Sunflower:300);  /*글자체 가져오기*/
+
+        body{
+            font-family: 'Sunflower', sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+        div#game{
+            width:450px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        div.result-img{
+            position: relative;
+            width: 220px;
+            float: left;
+        }
+        div.result-img:first-child{
+            text-align: right;
+        }
+        div.result-img:last-child{
+            text-align:left;
+        }
+        div.result-img span{
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 20px;
+            width: 120px;
+            text-align: center;
+            background-color: #f4f2c6;
+            position: absolute;
+            top: 25%;
+            left: 20%;
+        }
+        .user-option{
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.user-option').click(function(){
+                // user가 선택한 값
+                let user_answer = $(this).attr('id').substr(3);
+                // computer가 선택한 값(0:가위,1:바위,2:보)
+                let com_answer = Math.floor(Math.random()*3);
+
+                let result;
+                let num = com_answer - user_answer;
+                if(num == -2 || num == 1){
+                    result = ['승','패'];
+                }else if(num == -1 || num == 2){
+                    result = ['패','승'];
+                }else{
+                    result = ['무','무'];
+                }
+
+                $('.result-img img').attr('src',function(index){
+                    if(index==0){ // 컴퓨터
+                        return '../files/timg'+com_answer+'.png';
+                    }else{ // 사용자
+                        return '../files/timg'+user_answer+'.png';
+                    }
+                }).show(); // 안보이던 값 보이도록
+
+                $('.result-img span').text(function(index){
+                    return (index == 0 ? '컴퓨터' : '사용자') + result[index];
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>가위,바위,보 게임</h1>
+    <div id="game">
+        <div>
+            <img src="../files/timg0.png" class="user-option" id="img0" width="90">
+            <img src="../files/timg1.png" class="user-option" id="img1" width="90">
+            <img src="../files/timg2.png" class="user-option" id="img2" width="90">
+        </div>
+        <div>
+            <div class="result-img">
+                <img style="display:none;" alt="컴퓨터">
+                <span></span>
+            </div>
+            <div class="result-img">
+                <img style="display:none" alt="사용자">
+                <span></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
