@@ -18,32 +18,32 @@
        for(let i=1;i<=3;i++){
         document.write(i + '<br>');
        }
-    //    document.write(i); // i is not defined (블록을 빠져나가서 소멸됨)
+        //    document.write(i); // i is not defined (블록을 빠져나가서 소멸됨)
 
-    document.write('-----------------<br>');
+        document.write('-----------------<br>');
 
-    function test1() {
-        let i = 100;
-        document.write(i + '<---함수 안에서 호출<br>'); //100
-    }
-    test1();
-    // document.write(i + '<br>');
-
-
-    function test2(){
-        document.write('<br>-----------------<br>');
-
-        let i = 100;//함수 스코프
-        document.write(i + '<br>'); //100
-
-        // 반복문
-        for(let i=1;i<3;i++){
-            document.write(i + '<br>'); //1 2 블록 레벨 2
+        function test1() {
+            let i = 100;
+            document.write(i + '<---함수 안에서 호출<br>'); //100
         }
+        test1();
+        // document.write(i + '<br>');
 
-        document.write(i + '<br>');
-    }
-    test2();
+
+        function test2(){
+            document.write('<br>-----------------<br>');
+
+            let i = 100; //함수 스코프
+            document.write(i + '<br>'); //100
+
+            // 반복문
+            for(let i=1;i<3;i++){
+                document.write(i + '<br>'); //1 2 블록 레벨 2
+            }
+
+            document.write(i + '<br>');
+        }
+        test2();
 
     </script>
 </body>
